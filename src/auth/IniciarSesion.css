@@ -1,0 +1,126 @@
+/* Mismo fondo crema para consistencia */
+body {
+    background-color: #fff8e7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    padding: 40px 35px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #88002b; /* Color Vino */
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a4a4a;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box; /* Vital para que el padding no rompa el ancho */
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #88002b;
+    box-shadow: 0 0 0 3px rgba(136, 0, 43, 0.1);
+}
+
+/* Botón principal */
+.login-container button {
+    width: 100%;
+    background: #88002b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.login-container button:hover:not(:disabled) {
+    background: #6b0022;
+}
+
+.login-container button:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+/* Estado deshabilitado (loading) */
+.login-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Estilos para los mensajes de alerta (Feedback visual) */
+.mensaje {
+    margin-top: 20px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.mensaje--error {
+    background-color: #fff5f5;
+    color: #c53030;
+    border: 1px solid #fc8181;
+}
+
+.mensaje--ok {
+    background-color: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #68d391;
+}
+
+/* Footer del login (link a registro) */
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.login-footer a {
+    color: #0044cc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}

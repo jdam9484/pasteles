@@ -1,0 +1,71 @@
+.usuarioMini {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  max-width: 320px;
+}
+
+.usuarioMini--loading {
+  color: #666;
+  font-weight: 600;
+}
+
+.usuarioMini-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #bbb;
+  display: inline-block;
+}
+
+.usuarioMini-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(17, 16, 29, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #11101d;
+}
+
+.usuarioMini-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.usuarioMini-name {
+  font-weight: 900;
+  color: #11101d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.usuarioMini-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.badge-admin {
+  background: rgba(136, 0, 43, 0.12);
+  color: #88002b;
+}
+
+.badge-cliente {
+  background: rgba(39, 174, 96, 0.12);
+  color: #27ae60;
+}

@@ -1,0 +1,94 @@
+/* Configuración general para el fondo de la página */
+body {
+    background-color: #fff8e7; /* El color crema de fondo de la imagen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente limpia sin remates */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.registro-container {
+    width: 100%;
+    max-width: 400px; /* Un poco más estrecho para coincidir con la imagen */
+    background: #ffffff;
+    border-radius: 10px; /* Bordes redondeados pero no exagerados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+    padding: 40px 35px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.registro-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #88002b; /* Color Vino */
+    font-weight: 800; /* Texto muy grueso (Bold) */
+    font-size: 1.6rem;
+}
+
+.registro-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a4a4a; /* Gris oscuro neutro */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.registro-container input, 
+.registro-container select {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d1d1; /* Borde gris sutil */
+    border-radius: 6px; /* Radio pequeño similar a la imagen */
+    background-color: #ffffff; /* Fondo blanco puro */
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.registro-container input:focus {
+    outline: none;
+    border-color: #88002b;
+    box-shadow: 0 0 0 3px rgba(136, 0, 43, 0.1);
+}
+
+.registro-container button {
+    width: 100%;
+    background: #88002b; /* Color Vino */
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px; /* Coincide con los inputs */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.registro-container button:hover {
+    background: #6b0022;
+}
+
+.registro-container .mensaje {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Estilo específico para el link azul del final */
+.registro-container .mensaje a {
+    color: #0044cc; /* Azul estándar de enlaces */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registro-container .mensaje a:hover {
+    text-decoration: underline;
+}
