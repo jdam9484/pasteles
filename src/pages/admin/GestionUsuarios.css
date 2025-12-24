@@ -1,0 +1,11 @@
+.guPage { padding: 18px; background:#f5f6fa; min-height: 100vh; font-family: system-ui; }
+.guHeader { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.guHeader h2 { margin:0 0 4px; }
+.guHeader p { margin:0; color:#666; }
+
+.guTools { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.guSearch { flex:1; min-width:240px; padding:10px 12px; border-radius:12px; border:1px solid #ddd; }
+
+.guMsg { margin: 10px 0; padding: 10px 12px; border-radius: 12px; font-weight: 800; }
+.guMsg.ok { background: rgba(39,174,96,.12); color:#27ae60; }
+.guMsg.err { background: rgba(136,0,43,.10); color:#88002b; }

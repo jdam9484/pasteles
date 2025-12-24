@@ -1,0 +1,96 @@
+.pmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.pmModal {
+  width: min(720px, 96%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.pmHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.pmHead h3 { margin: 0; }
+
+.pmClose {
+  border: none;
+  background: rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.pmBody { padding: 16px; }
+
+.pmGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pmField label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.pmField input, .pmField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.pmFull { grid-column: 1 / -1; }
+
+.pmHint { color: #666; display: block; margin-top: 6px; }
+
+.pmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid #eee;
+}
+
+.pmBtn {
+  border: none;
+  background: #88002b;
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.pmGhost {
+  background: #eee;
+  color: #11101d;
+}
+
+@media (max-width: 720px) {
+  .pmGrid { grid-template-columns: 1fr; }
+}
+.pmField select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}

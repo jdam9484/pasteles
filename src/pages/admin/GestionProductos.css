@@ -1,0 +1,59 @@
+.gpPage {
+  padding: 18px;
+  background: #f5f6fa;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.gpHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gpHeader h2 { margin: 0 0 4px; }
+.gpHeader p { margin: 0; color: #666; }
+
+.gpCreateBtn {
+  border: none;
+  background: #88002b;
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.gpTools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.gpSearch {
+  flex: 1;
+  min-width: 240px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.gpSelect {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.gpMsg {
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.gpMsg.ok { background: rgba(39,174,96,.12); color: #27ae60; }
+.gpMsg.err { background: rgba(136,0,43,.10); color: #88002b; }

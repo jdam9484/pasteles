@@ -1,59 +1,48 @@
-// Usar objetos globales de Firebase (CDN)
-// Se asume que Firebase y sus servicios ya están cargados en el HTML vía <script src="https://www.gstatic.com/firebasejs/...">
-// auth y db están disponibles como window.auth y window.db
-
-// src/services/authService.js (o donde lo tengas)
-import { db } from "../firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../firebase/config";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 
 export async function getUserRole(uid) {
   const snap = await getDoc(doc(db, "user", uid));
   return snap.exists() ? (snap.data()?.rol ?? "cliente") : "cliente";
 }
 
-// LOGIN
 export async function loginUser(email, password) {
   try {
-    const userCredential = await auth.signInWithEmailAndPassword(email, password);
-    const user = userCredential.user;
-    const userDoc = await db.collection("user").doc(user.uid).get();
-    if (!userDoc.exists) {
-      return { success: false, error: "Usuario no encontrado" };
-    }
-    return {
-      success: true,
-      user,
-      userData: userDoc.data(),
-      role: userDoc.data().rol
-    };
-  } catch (error) {
-    return { success: false, error: error.message };
+    const emailNorm = email.trim().toLowerCase();
+
+    const cred = await signInWithEmailAndPassword(auth, emailNorm, password);
+    const userSnap = await getDoc(doc(db, "user", cred.user.uid));
+
+    if (!userSnap.exists()) return { success: false, error: "Perfil no encontrado en Firestore." };
+
+    const userData = userSnap.data();
+    return { success: true, user: cred.user, userData, role: userData?.rol ?? "cliente" };
+  } catch (e) {
+    return { success: false, error: e?.message || "Error al iniciar sesión" };
   }
 }
 
-
-
-// REGISTRO
-export async function registerUser({ nombre, email, password, rol }) {
+export async function registerUser({ nombre, email, password, rol = "cliente" }) {
   try {
-    const cred = await auth.createUserWithEmailAndPassword(email, password);
-    await db.collection("user").doc(cred.user.uid).set({
-      email,
-      nombre,
+    const emailNorm = email.trim().toLowerCase();
+
+    const cred = await createUserWithEmailAndPassword(auth, emailNorm, password);
+
+    await setDoc(doc(db, "user", cred.user.uid), {
+      email: emailNorm,
+      nombre: nombre?.trim() || "",
       rol,
-      fechaRegistro: new Date()
+      activo: true,
+      fechaRegistro: serverTimestamp(),
     });
+
     return { success: true };
-  } catch (error) {
-    return { success: false, error: error.message };
+  } catch (e) {
+    return { success: false, error: e?.message || "Error registrando usuario" };
   }
 }
-  
 
-// LOGOUT
 export async function logoutUser() {
-  await auth.signOut();
+  await signOut(auth);
 }
-
-// OBTENER ROL
-

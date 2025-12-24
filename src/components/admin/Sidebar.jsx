@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 
 const NAV = [
   { to: "/admin", label: "Dashboard", icon: "📊" },
-  { to: "/admin/usuarios", label: "Usuarios", icon: "👤" },
-  { to: "/admin/productos", label: "Productos", icon: "📦" },
+  { to: "/admin/gestion-usuarios", label: "Usuarios", icon: "👤" },
+  { to: "/admin/gestion-productos", label: "Productos", icon: "📦" },
   { to: "/admin/reportes", label: "Reportes", icon: "🧾" },
 ];
 

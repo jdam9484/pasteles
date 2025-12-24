@@ -89,6 +89,7 @@ export default function DashboardAdmin() {
         onGoReportes={() => navigate("/admin/reportes")}
         onGoUsuarios={() => navigate("/admin/usuarios")}
         onGoProductos={() => navigate("/admin/productos")}
+        onNavigate={(to) => navigate(to)}
         onLogout={handleLogout}
       />
 

@@ -1,0 +1,22 @@
+.utLoading { padding:12px; color:#666; }
+
+.utWrap {
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06);
+  overflow:auto;
+}
+
+.utTable { width:100%; border-collapse:collapse; }
+.utTable th, .utTable td { padding:12px; border-bottom:1px solid #f0f0f0; text-align:left; }
+.utStrong { font-weight:900; }
+.utEmpty { text-align:center; color:#999; padding:16px; }
+
+.utActions { display:flex; gap:8px; flex-wrap:wrap; }
+.utBtn { border:none; background:#11101d; color:#fff; font-weight:900; padding:8px 10px; border-radius:10px; cursor:pointer; }
+.utBtn:disabled { opacity:.5; cursor:not-allowed; }
+.utDanger { background:#900c3f; }
+
+.utBadge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:900; font-size:12px; }
+.utBadge.admin { background: rgba(136,0,43,.10); color:#88002b; }
+.utBadge.cli { background: rgba(17,16,29,.08); color:#11101d; }
