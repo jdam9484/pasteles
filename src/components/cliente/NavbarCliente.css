@@ -17,7 +17,7 @@
 .nav-burger {
   display: none;
   border: none;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.8); 
   border-radius: 12px;
   padding: 10px 12px;
   cursor: pointer;
@@ -27,7 +27,7 @@
 .nav-links {
   display: flex;
   gap: 14px;
-  background: rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.75); /* pantalla de los servicios */
   backdrop-filter: blur(8px);
   border: 1px solid #eee;
   border-radius: 999px;

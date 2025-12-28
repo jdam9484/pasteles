@@ -1,14 +1,31 @@
-/* Configuración general para el fondo de la página */
+/* Registro  Configuración general para el fondo de la página */
+
+
 body {
-    background-color: #fff8e7; /* El color crema de fondo de la imagen */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente limpia sin remates */
+  background-color: #d7b090; /* El color crema de fondo de la imagen */
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;               /* 🔥 separación entre tarjetas */
+  margin-top: 30px;        /* separación desde el título */
+
+}
+
+#root {
+  min-height: 100vh;
+}
+
+
+/* body {
+    background-color: #d7b090; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
+} */
 
 .registro-container {
     width: 100%;

@@ -9,7 +9,7 @@
 }
 
 .box {
-  background: #fff;
+  background: #fff; /* color de fondo de los productos */
   border-radius: 16px;
   overflow: hidden;
   display: grid;

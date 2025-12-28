@@ -1,19 +1,27 @@
-.cliente-root {
-  background: #f5f6fa;
+/* Dashboardcliente 
+ */
+
+/* .cliente-root {
+  background: #d7b090; 
   min-height: 100vh;
-}
+} */
 
 .container {
-  width: min(1150px, 92%);
+  width: min(1600px, 96%);
   margin: 0 auto;
+  
 }
+
+
+
+
 
 .cliente-header {
   position: relative;
   padding-bottom: 20px;
 }
 
-.bg {
+/* .bg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -21,7 +29,7 @@
   object-fit: cover;
   opacity: 0.25;
   pointer-events: none;
-}
+} */
 
 .header-content {
   position: relative;
