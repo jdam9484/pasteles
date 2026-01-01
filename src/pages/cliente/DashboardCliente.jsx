@@ -92,7 +92,8 @@ export default function DashboardCliente() {
       <Navbar
         cartCount={cartCount}
         onOpenCart={() => setCartOpen(true)}
-        onLoginClick={() => (window.location.href = "/registro")}
+        onLoginClick={() => (window.location.href = "/iniciar-sesion")}
+
       />
 
       <div className="container" style={{ paddingTop: 18 }}>

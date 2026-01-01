@@ -1,35 +1,19 @@
-/* Dashboardcliente 
- */
+/* DashboardCliente */
 
-/* .cliente-root {
-  background: #d7b090; 
+.cliente-root {
+  background: #d7b090; /* Fondo único para toda la página */
   min-height: 100vh;
-} */
+}
 
 .container {
   width: min(1600px, 96%);
   margin: 0 auto;
-  
 }
-
-
-
-
 
 .cliente-header {
   position: relative;
   padding-bottom: 20px;
 }
-
-/* .bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  pointer-events: none;
-} */
 
 .header-content {
   position: relative;

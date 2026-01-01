@@ -1,49 +1,76 @@
+/* Navbar fija, ancho completo, con fondo y sombra */
 .nav {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
+  position: fixed;             /* Fija la navbar en la parte superior */
+  top: 0;
+  left: 0;
+  z-index: 1000;               /* Siempre encima */
+  width: 100%;                 /* Ocupa todo el ancho */
+  max-width: none !important;  /* Rompe límites si los hay */
+  margin: 0;                   /* Quita centrado automático */
+
+  background-color: #FFF5E1;   /* Fondo claro */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+padding: 20px 0px;
+transition: all 0.3s ease;
+
 }
 
+.nav-welcome {
+  font-weight: 800;
+  color: #11101d;
+  margin-right: 12px; /* espacio a la derecha */
+}
+
+/* Logo */
 .nav-logo img {
-  width: 54px;
-  height: 54px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 50%;
+  display: block;
 }
 
-.nav-burger {
-  display: none;
-  border: none;
-  background: rgba(255,255,255,0.8); 
-  border-radius: 12px;
-  padding: 10px 12px;
-  cursor: pointer;
-  font-weight: 900;
-}
-
+/* Contenedor de enlaces */
 .nav-links {
   display: flex;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.75); /* pantalla de los servicios */
-  backdrop-filter: blur(8px);
-  border: 1px solid #eee;
-  border-radius: 999px;
-  padding: 10px 14px;
+  gap: 50px;          /* separación entre enlaces */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;  /* sin cuadro ni fondo */
+  border: none;
+  box-shadow: none;
+  position: static;
 }
 
-.nav-links a {
+.nav-item {
+  display: flex;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;           /* espacio entre icono y texto */
   text-decoration: none;
   font-weight: 800;
   color: #11101d;
+  font-size: 20px;
 }
 
+.nav-link .nav-ico {
+  font-size: 22px;
+}
+
+/* Área derecha: login, carrito */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .nav-login,
@@ -53,30 +80,13 @@
   color: #fff;
   font-weight: 900;
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 10px 14px;
   cursor: pointer;
-}
-
-.nav-user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid #eee;
-  border-radius: 14px;
-  padding: 8px 10px;
-}
-
-.nav-welcome {
-  font-weight: 800;
-  color: #11101d;
 }
 
 .nav-cart {
   border: none;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid #eee;
-  border-radius: 14px;
+  background: transparent;
   padding: 10px 12px;
   cursor: pointer;
   position: relative;
@@ -102,17 +112,42 @@
   place-items: center;
 }
 
+/* BOTÓN BURGER para móvil */
+.nav-burger {
+  display: none; /* invisible en PC */
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+/* Móvil: mostrar burger y menú vertical */
 @media (max-width: 900px) {
-  .nav-burger { display: inline-flex; }
+  .nav-burger {
+    display: inline-flex;
+  }
+
   .nav-links {
     display: none;
+    flex-direction: column;
     position: absolute;
-    top: 72px;
+    top: 72px; /* debajo de la navbar */
     left: 0;
     right: 0;
-    border-radius: 16px;
-    padding: 12px;
-    justify-content: space-around;
+    padding: 0;
+    background: transparent; /* sin fondo */
+    gap: 20px;
+    align-items: center;
   }
-  .nav-links.open { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* Evita que el contenido quede debajo de la navbar fija */
+body {
+  padding-top: 100px; /* Ajusta según la altura de la navbar */
 }

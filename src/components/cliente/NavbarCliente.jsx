@@ -7,7 +7,6 @@ import { doc, getDoc } from "firebase/firestore";
 
 export default function NavbarCliente({ cartCount, onOpenCart, onLoginClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [user, setUser] = useState(null);
   const [perfil, setPerfil] = useState(null);
 
@@ -15,7 +14,6 @@ export default function NavbarCliente({ cartCount, onOpenCart, onLoginClick }) {
     const unsub = onAuthStateChanged(auth, async (u) => {
       setUser(u || null);
       setPerfil(null);
-
       if (u) {
         try {
           const snap = await getDoc(doc(db, "user", u.uid));
@@ -25,33 +23,48 @@ export default function NavbarCliente({ cartCount, onOpenCart, onLoginClick }) {
         }
       }
     });
-
     return () => unsub();
   }, []);
 
-  const logout = async () => {
-    await signOut(auth);
-  };
+  const logout = async () => await signOut(auth);
+
+  const navItems = [
+    { ico: "🏠", txt: "Inicio", href: "#inicio" },
+    { ico: "🧁", txt: "Servicios", href: "#servicios" },
+    { ico: "🛍️", txt: "Producto", href: "#productos" },
+    { ico: "📞", txt: "Contacto", href: "#contacto" },
+  ];
 
   return (
-    <div className="nav container">
+    <nav className="nav">
+      {/* Logo */}
       <a className="nav-logo" href="#inicio">
         <img src="/assets/LogoPasteleria.PNG" alt="Logo Pastelería" />
       </a>
 
-      <button className="nav-burger" onClick={() => setMenuOpen((v) => !v)} type="button">
+      {/* Burger móvil */}
+      <button
+        className="nav-burger"
+        onClick={() => setMenuOpen((v) => !v)}
+        type="button"
+      >
         ☰
       </button>
 
-      <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
-        <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
-        <a href="#productos" onClick={() => setMenuOpen(false)}>Producto</a>
-        <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
-      </nav>
+      {/* Lista de enlaces */}
+      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+        {navItems.map((item, idx) => (
+          <li className="nav-item" key={idx} onClick={() => setMenuOpen(false)}>
+            <a href={item.href} className="nav-link">
+              <span className="nav-ico">{item.ico}</span>
+              <span className="nav-txt">{item.txt}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
 
+      {/* Área derecha: usuario y carrito */}
       <div className="nav-right">
-        {/* Usuario o botón login */}
         {user ? (
           <div className="nav-user">
             <span className="nav-welcome">
@@ -67,12 +80,11 @@ export default function NavbarCliente({ cartCount, onOpenCart, onLoginClick }) {
           </button>
         )}
 
-        {/* Carrito */}
         <button className="nav-cart" type="button" onClick={onOpenCart}>
           <img src="/assets/car.svg" alt="carrito" />
           <span className="cart-count">{cartCount}</span>
         </button>
       </div>
-    </div>
+    </nav>
   );
 }
