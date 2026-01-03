@@ -8,7 +8,7 @@ const NAV = [
   { to: "/admin/reportes", label: "Reportes", icon: "🧾" },
 ];
 
-export default function Sidebar({ isOpen, onToggle, onNavigate, onLogout }) {
+export default function Sidebar({ isOpen, onToggle, onNavigate }) {
   const { pathname } = useLocation();
 
   return (
