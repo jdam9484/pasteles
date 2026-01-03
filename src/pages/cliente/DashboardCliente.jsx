@@ -2,9 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./DashboardCliente.css";
 
+
 import Navbar from "../../components/cliente/NavbarCliente.jsx";
+import Hero from "../../components/cliente/Hero.jsx";
 import Carrito from "../../components/cliente/Carrito.jsx";
 import Productos from "../../components/cliente/Productos.jsx";
+
 
 import { getCart, saveCart, clearCart } from "../../services/cartStorage.js";
 
@@ -13,13 +16,7 @@ export default function DashboardCliente() {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [toast, setToast] = useState({ show: false, text: "" });
-
-  const [items, setItems] = useState([]);
-
-  // cargar carrito
-  useEffect(() => {
-    setItems(getCart());
-  }, []);
+  const [items, setItems] = useState(getCart());
 
   // guardar carrito
   useEffect(() => {
@@ -93,13 +90,11 @@ export default function DashboardCliente() {
         cartCount={cartCount}
         onOpenCart={() => setCartOpen(true)}
         onLoginClick={() => (window.location.href = "/iniciar-sesion")}
-
       />
-
+      <Hero />
       <div className="container" style={{ paddingTop: 18 }}>
         <Productos onAddToCart={addToCart} />
       </div>
-
       <Carrito
         open={cartOpen}
         onClose={() => setCartOpen(false)}
@@ -110,7 +105,6 @@ export default function DashboardCliente() {
         onClear={clearCartUI}
         onPay={goPay}
       />
-
       {toast.show && <div className="toast">{toast.text}</div>}
     </div>
   );

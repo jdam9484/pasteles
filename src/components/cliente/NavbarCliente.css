@@ -1,3 +1,267 @@
+/* ---------------------------------------------------- */
+/*                ESTRUCTURA GENERAL / HEADER           */
+/* ---------------------------------------------------- */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  max-width: none !important;
+  width: 100%;
+  margin: 0;
+  background-color: #FFF5E1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 5%;
+  transition: all 0.3s ease;
+}
+
+.logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+.logo { padding-top: 2px; padding-bottom: 2px; }
+
+/* ---------------------------------------------------- */
+/*                MENÚ DE NAVEGACIÓN (NAVBAR)           */
+/* ---------------------------------------------------- */
+
+.nav-list {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 6px;
+  color: #1D1D18;
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.nav-ico {
+  font-size: 20px;
+  color: #ff6b5e;
+  display: inline-flex;
+  width: 26px;
+  justify-content: center;
+}
+
+.nav-txt {
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -8px;
+  height: 3px;
+  background: transparent;
+  border-radius: 6px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: all 0.25s ease;
+}
+
+.nav-item:hover .nav-link::after,
+.nav-item.active .nav-link::after {
+  background: #ff6b5e;
+  transform: scaleX(1);
+}
+
+.nav-item:hover .nav-link {
+  color: #ff6b5e;
+  transform: translateY(-2px);
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-12px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(12px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+#menu {
+  display: none;
+}
+
+.menu-icono {
+  width: 25px;
+}
+
+.menu label {
+  cursor: pointer;
+  display: none;
+}
+
+/* ---------------------------------------------------- */
+/*                CARRITO / SUBMENÚ                     */
+/* ---------------------------------------------------- */
+
+.submenu #carrito {
+  display: none;
+}
+
+.submenu:hover #carrito,
+.cart-container:hover #carrito {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  background-color: white;
+  padding: 20px;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.cart-wrapper { position: relative; display: inline-block; }
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff9a2e;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.cart-card {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: 48px;
+  width: 720px;
+  max-width: calc(100vw - 40px);
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  text-align: left;
+  color: #222;
+}
+
+.submenu:hover .cart-card { display: block; }
+
+.cart-header {
+  background: #6f0808;
+  color: #fff;
+  padding: 18px 22px;
+}
+.cart-header h3 { margin: 0; font-size: 20px; }
+
+.cart-body { padding: 12px 18px; max-height: 300px; overflow-y: auto; }
+.cart-body table { width: 100%; border-collapse: collapse; }
+.cart-body th, .cart-body td { padding: 10px; text-align: left; vertical-align: middle; font-size: 14px; }
+.cart-body thead th { background: #fff; color: #333; font-weight: 700; border-bottom: 1px solid #eee; }
+.cart-body tbody tr { border-bottom: 1px solid #f0f0f0; }
+.cart-body img { width: 70px; height: 50px; object-fit: cover; border-radius: 6px; }
+
+.cart-footer { padding: 16px 22px 22px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cart-total { font-weight: 800; color: #d35400; font-size: 18px; }
+.vaciar-large { background: #6f0808; color: #fff; padding: 12px 22px; border-radius: 12px; display: inline-block; text-decoration: none; }
+.vaciar-large:hover { background: #8a0b0b; }
+
+table {
+  width: 100%;
+}
+
+th, td {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.borrar {
+  background-color: blue;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+}
+/* ---------------------------------------------------- */
+/*                BOTÓN LOGIN Y SUBMENÚ                 */
+/* ---------------------------------------------------- */
+
+#mostrarLogin {
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #720606;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#mostrarLogin:hover {
+  background-color: #EF8700;
+}
+
+.submenu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
 /* Navbar fija, ancho completo, con fondo y sombra */
 .nav {
   position: fixed;             /* Fija la navbar en la parte superior */
@@ -9,6 +273,7 @@
   margin: 0;                   /* Quita centrado automático */
 
   background-color: #FFF5E1;   /* Fondo claro */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
 
 display: flex;
