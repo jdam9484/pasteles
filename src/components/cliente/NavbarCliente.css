@@ -40,12 +40,13 @@
 }
 
 .logo-img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 }
 
 .logo { padding-top: 2px; padding-bottom: 2px; }
@@ -279,7 +280,7 @@ th, td {
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 20px;
+gap: 120px;
 padding: 20px 0px;
 transition: all 0.3s ease;
 
@@ -336,6 +337,7 @@ transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 12px;
+    margin-right: 40px;
 }
 
 .nav-login,
@@ -358,8 +360,8 @@ transition: all 0.3s ease;
 }
 
 .nav-cart img {
-  width: 22px;
-  height: 22px;
+  width: 48px;
+  height: 48px;
 }
 
 .cart-count {
@@ -369,9 +371,9 @@ transition: all 0.3s ease;
   background: #900c3f;
   color: #fff;
   font-weight: 900;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 16px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   display: grid;
   place-items: center;

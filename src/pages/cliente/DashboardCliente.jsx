@@ -7,6 +7,7 @@ import Navbar from "../../components/cliente/NavbarCliente.jsx";
 import Hero from "../../components/cliente/Hero.jsx";
 import Carrito from "../../components/cliente/Carrito.jsx";
 import Productos from "../../components/cliente/Productos.jsx";
+import Servicios from "../../components/cliente/Servicios.jsx";
 
 
 import { getCart, saveCart, clearCart } from "../../services/cartStorage.js";
@@ -43,18 +44,22 @@ export default function DashboardCliente() {
   };
 
   const addToCart = (product, cantidad = 1) => {
+    console.log('Intentando agregar al carrito:', product, 'Cantidad:', cantidad);
     setItems((prev) => {
       const found = prev.find((p) => p.id === product.id);
       if (found) {
-        return prev.map((p) =>
+        const updated = prev.map((p) =>
           p.id === product.id
             ? { ...p, cantidad: (p.cantidad || 1) + cantidad }
             : p
         );
+        console.log('Carrito actualizado (producto ya estaba):', updated);
+        return updated;
       }
-      return [...prev, { ...product, cantidad }];
+      const nuevo = [...prev, { ...product, cantidad }];
+      console.log('Carrito actualizado (nuevo producto):', nuevo);
+      return nuevo;
     });
-
     showToast("Producto agregado al carrito");
     setCartOpen(true);
   };
@@ -84,6 +89,11 @@ export default function DashboardCliente() {
     navigate("/checkout");
   };
 
+  useEffect(() => {
+    console.log('Estado actual del carrito (items):', items);
+    saveCart(items);
+  }, [items]);
+
   return (
     <div className="cliente-root">
       <Navbar
@@ -93,6 +103,7 @@ export default function DashboardCliente() {
       />
       <Hero />
       <div className="container" style={{ paddingTop: 18 }}>
+        <Servicios />
         <Productos onAddToCart={addToCart} />
       </div>
       <Carrito

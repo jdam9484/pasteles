@@ -1,25 +1,37 @@
-.breakfast {
-  padding: 28px 0 10px;
-}
-
+/* Servicios.css */
 .breakfast-content {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    padding: 20px 0;
 }
 
 .breakfast-card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    width: 100%;
+    background: #900C3F;
+    color: #fff;
+    border-radius: 18px;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+    object-fit: contain;
 }
 
 .breakfast-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+    width: 80%;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    border-radius: 15px;
+   
+}
+
+/* Hover con animación */
+.breakfast-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
 }
 
 .breakfast-card h3 {
@@ -29,3 +41,166 @@
 @media (max-width: 900px) {
   .breakfast-content { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+
+/* ---------------------------------------------------- */
+/*                SECCIÓN DE INFORMACIÓN (INFO)         */
+/* ---------------------------------------------------- */
+
+.info {
+    padding: 100px 0;
+    position: relative;
+}
+
+.info-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.info-img img {
+    height: 100%;
+    width: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.4);
+    display: block;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Botón animado */
+.btn-animado {
+    display: inline-block;
+    padding: 12px 26px;
+    background: #7A000B;
+    color: white;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: .3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin-top: 25px;
+}
+
+/* Hover del botón */
+.btn-animado:hover {
+    background: #B00014;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Animación suave de aparición */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to   {opacity: 1; transform: translateY(0);}
+}
+
+/* ---------------------------------------------------- */
+/*                SECCIÓN DE INFORMACIÓN (INFO)         */
+/* ---------------------------------------------------- */
+
+.bg-2 {
+    position: absolute;
+    width: 300px;
+    z-index: -1;
+    top: 50px;
+}
+
+.info-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 600%;
+}
+
+.info-txt {
+    width: 50%;
+}
+
+/* ---------------------------------------------------- */
+/*                PRODUCTOS GENERALES                   */
+/* ---------------------------------------------------- */
+
+.products {
+    padding: 0 0 50px 0;
+    text-align: center;
+}
+
+.box-container {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.box:nth-child(-n+4) { 
+    display: flex;
+}
+
+.precio {
+    font-size: 15px;
+    color: #1D1D18;
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------- */
+/*                BOTONES GENERALES                     */
+/* ---------------------------------------------------- */
+
+.btn-1 {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 28px;
+    border-radius: 28px;
+    background: linear-gradient(180deg,#7a000b,#5a0007);
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: none;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.btn-1:hover { background: linear-gradient(180deg,#8a0b0b,#6b0404); transform: translateY(-3px); }
+
+/* Contenedor que alinea el botón Información y el buscador */
+.actions {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-top: 18px;
+}
+
+@media (max-width:991px) {
+    .actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .search-container { width: 100%; }
+}
+
+.btn-2 {
+    background-color: #900C3F;
+    margin-top: 50px;
+    display: inline-block;
+    padding: 13px 35px;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-2:hover { background-color: #EF8700; }
+
+.btn-3 {
+    display: inline-block;
+    padding: 5px 25px;
+    background-color: #720606;
+    margin-top: 50px;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.btn-3:hover { background-color: #EF8700; }

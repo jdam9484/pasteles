@@ -41,7 +41,6 @@ export default function NavbarCliente({ cartCount, onOpenCart, onLoginClick }) {
       <a className="nav-logo" href="#inicio">
         <img src="/assets/LogoPasteleria.PNG" alt="Logo Pastelería" />
       </a>
-
       {/* Burger móvil */}
       <button
         className="nav-burger"

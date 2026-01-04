@@ -1,7 +1,18 @@
-/* Hero visual mejorado */
+/* ---------------------------------------------------- */
+/*                HEADER CONTENT (TEXTO / IMAGEN)       */
+/* ---------------------------------------------------- */
+
+.bg {
+    position: absolute;
+    width: 700px;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
 .header {
 	position: relative;
-	padding-top: 120px;
+	padding-top: 180px; /* Antes 120px, ahora más arriba */
 	background: transparent;
 	width: 100vw;
 	max-width: 100vw;
@@ -20,15 +31,38 @@
 	padding: 0 5vw;
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: -30px; /* Nuevo: sube el bloque aún más */
+}
+
+.header-txt {
+    width: 50%;
+    margin-right: 50px;
+    margin-left: 135px; /* Nuevo: mueve el bloque más al centro */
+}
+
+.header-txt h1 {
+    font-size: 55px;
+    line-height: 65px;
+    color: #4E342E;;
+    margin-bottom: 35px;
+}
+
+.header-txt p {
+    font-size: 16px;
+    color: #5D4037;
+    margin-bottom: 45px;
+}
+
+.header-txt span {
+    color: #900C3F;
 }
 
 .header-img {
-	position: relative;
-	width: 600px;
-	max-width: 48vw;
-	text-align: right;
-	z-index: 1;
+    width: 50%;
+    text-align: right;
+    position: relative;
 }
+
 .header-img img {
 	width: 540px;
 	max-width: 100%;
@@ -41,40 +75,31 @@
 	z-index: 2;
 }
 
-/* Fondo decorativo detrás de la torta */
-.header-img::before {
-	content: "";
-	position: absolute;
-	top: -60px;
-	right: -80px;
-	width: 700px;
-	height: 700px;
-	background: url('/assets/bg.png') no-repeat right top;
-	background-size: contain;
-	z-index: 1;
-	pointer-events: none;
+/* Animación sutil tipo "respiración" para la imagen del header */
+.header-img img {
+    transform-origin: center center;
+    will-change: transform;
+    animation: breathe 6s ease-in-out infinite;
 }
 
-@media (max-width: 1100px) {
-	.header-content {
-		flex-direction: column;
-		align-items: center;
-		gap: 30px;
-	}
-	.header-img {
-		width: 100%;
-		max-width: 350px;
-		text-align: center;
-	}
-	.header-img img {
-		width: 320px;
-		max-width: 100%;
-		margin: 0 auto;
-	}
-	.header-img::before {
-		width: 350px;
-		height: 350px;
-		top: -30px;
-		right: -30px;
-	}
+.header-img img:hover {
+    animation-play-state: paused; /* pausa la animación al pasar el ratón */
+}
+
+@keyframes breathe {
+    0% { transform: translateY(0) scale(1); }
+    35% { transform: translateY(-6px) scale(1.02); }
+    65% { transform: translateY(4px) scale(0.995); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.bg-hero {
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 700px;
+  height: 700px;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: contain;
 }

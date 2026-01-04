@@ -8,22 +8,22 @@ export default function Servicios() {
 
       <div className="breakfast-content">
         <div className="breakfast-card">
-          <img src="/assets/Torta_Selva_Negra.jpg" alt="" />
+          <img src="/assets/Torta_Selva_Negra.jpg" alt="Torta Selva Negra" />
           <h3>Tortas</h3>
         </div>
 
         <div className="breakfast-card">
-          <img src="/assets/Postre_MussMara.jpg" alt="" />
+          <img src="/assets/Postre_MussMara.jpg" alt="Postre MussMara" />
           <h3>Postres</h3>
         </div>
 
         <div className="breakfast-card">
-          <img src="/assets/Bebidas_CocaInkaAgua.jpg" alt="" />
+          <img src="/assets/Bebidas_CocaInkaAgua.jpg" alt="Bebidas" />
           <h3>Bebidas</h3>
         </div>
 
         <div className="breakfast-card">
-          <img src="/assets/Salado_PapaRellena.jpg" alt="" />
+          <img src="/assets/Salado_PapaRellena.jpg" alt="Salado Papa Rellena" />
           <h3>Salados</h3>
         </div>
       </div>

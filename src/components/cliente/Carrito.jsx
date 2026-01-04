@@ -1,3 +1,4 @@
+import React from "react";
 import "./Carrito.css";
 
 export default function Carrito({
@@ -21,7 +22,7 @@ export default function Carrito({
             ✕
           </button>
         </div>
-
+     
         <div className="cart-body">
           <table className="cart-table">
             <thead>
@@ -35,13 +36,13 @@ export default function Carrito({
               </tr>
             </thead>
             <tbody>
-              {items.length === 0 ? (
+              {Array.isArray(items) && items.length === 0 ? (
                 <tr>
                   <td colSpan="6" className="cart-empty">
                     Carrito vacío
                   </td>
                 </tr>
-              ) : (
+              ) : Array.isArray(items) ? (
                 items.map((it) => (
                   <tr key={it.id}>
                     <td>
@@ -69,16 +70,20 @@ export default function Carrito({
                     </td>
                   </tr>
                 ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="cart-empty">
+                    Error: El carrito no es un array válido
+                  </td>
+                </tr>
               )}
             </tbody>
           </table>
         </div>
-
         <div className="cart-footer">
           <div className="cart-total">
             Total: <span>S/ {Number(total || 0).toFixed(2)}</span>
           </div>
-
           <div className="cart-actions">
             <button className="cart-btn" type="button" onClick={onClear}>
               Vaciar
