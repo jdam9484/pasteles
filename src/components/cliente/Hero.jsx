@@ -21,7 +21,10 @@ export default function Hero() {
           </div>
         </div>
         <div className="header-img">
-          <img src="/assets/sel_sf.png" alt="Torta" />
+            <div style={{position: 'relative'}}>
+              <img src="/assets/bg.png" alt="Fondo naranja" className="bg-hero" style={{position: 'absolute', top: '-120px', right: '-70px', width: '700px', height: '700px', zIndex: 1, pointerEvents: 'none'}} />
+              <img src="/assets/sel_sf.png" alt="Torta" style={{position: 'relative', zIndex: 2}} />
+            </div>
         </div>
       </div>
     </header>

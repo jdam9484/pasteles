@@ -76,10 +76,10 @@
 }
 
 /* Animación sutil tipo "respiración" para la imagen del header */
-.header-img img {
-    transform-origin: center center;
-    will-change: transform;
-    animation: breathe 6s ease-in-out infinite;
+
+.header-img img.bg-hero {
+    animation: none !important;
+    will-change: auto;
 }
 
 .header-img img:hover {

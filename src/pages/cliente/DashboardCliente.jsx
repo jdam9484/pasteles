@@ -5,12 +5,15 @@ import "./DashboardCliente.css";
 
 import Navbar from "../../components/cliente/NavbarCliente.jsx";
 import Hero from "../../components/cliente/Hero.jsx";
+import InfoBanner from "../../components/cliente/InfoBanner";
 import Carrito from "../../components/cliente/Carrito.jsx";
 import Productos from "../../components/cliente/Productos.jsx";
 import Servicios from "../../components/cliente/Servicios.jsx";
+import Footer from "../../components/cliente/Footer";
 
 
 import { getCart, saveCart, clearCart } from "../../services/cartStorage.js";
+import AppPromo from "../../components/cliente/AppPromo.jsx";
 
 export default function DashboardCliente() {
   const navigate = useNavigate();
@@ -104,7 +107,9 @@ export default function DashboardCliente() {
       <Hero />
       <div className="container" style={{ paddingTop: 18 }}>
         <Servicios />
+        <InfoBanner />
         <Productos onAddToCart={addToCart} />
+        <AppPromo />
       </div>
       <Carrito
         open={cartOpen}
@@ -117,6 +122,7 @@ export default function DashboardCliente() {
         onPay={goPay}
       />
       {toast.show && <div className="toast">{toast.text}</div>}
+      <Footer />
     </div>
   );
 }
