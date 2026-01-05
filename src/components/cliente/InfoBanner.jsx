@@ -21,7 +21,7 @@ export default function InfoBanner() {
   }, []);
 
   return (
-    <div className="info-banner" >
+    <div className="info-banner" style={{position: 'relative'}}>
       <img src="/assets/bg-2.png" alt="Decoración" className="bg-2" style={{position: 'absolute', left: '-120px', top: '-80px', width: '420px', maxWidth: '40vw', zIndex: -1, pointerEvents: 'none'}}/>
       <div className="info-img">
         {images.map((img, idx) => (
